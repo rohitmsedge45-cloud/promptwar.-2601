@@ -1,0 +1,7 @@
+node_modules/
+.sandbox-bin/
+.sandbox-secrets/
+.tmp/
+cache/
+tmp/
+*.exe

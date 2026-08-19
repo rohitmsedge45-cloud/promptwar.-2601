@@ -1,0 +1,225 @@
+Build a production-quality, fully functional responsive web application called SafeRoute.
+1. Goal
+Create a safety-focused route assistant that helps a user choose a safer route between two locations.
+This is a hackathon project for a real safety problem. Do NOT build only a visual mockup. Core interactions must actually work.
+The application should consider:
+Community safety reports
+Lighting conditions
+Crowd/activity level
+Previous incident reports
+Route distance and estimated travel time
+Clearly label demo/mock safety data as “Community/Demo Safety Data” where appropriate. Never claim that fabricated safety data is real.
+2. Main User Flow
+Landing page:
+SafeRoute logo/name
+Short tagline: “Choose a safer way home.”
+Start Location input
+Destination input
+“Find Safe Route” button
+“Report Unsafe Spot” button
+Emergency/SOS button
+When the user enters locations and clicks “Find Safe Route”:
+Validate both locations.
+Display a map.
+Display available route options.
+Calculate/display a Safety Score from 0–100.
+Show:
+Distance
+Estimated travel time
+Lighting level
+Crowd/activity level
+Nearby safety reports
+Clearly highlight the recommended safer route.
+Explain WHY the route is recommended.
+Example: “Recommended because this route has better lighting, higher activity and fewer community safety reports.”
+3. Safety Score
+Create a transparent scoring system.
+Example weighting:
+Lighting: 30%
+Crowd/activity: 25%
+Report history: 30%
+Route/environment factors: 15%
+Display the score visually:
+80–100 = Safer
+60–79 = Moderate
+Below 60 = Higher Risk
+Do not present this score as an official guarantee of safety.
+Show a small “How is this calculated?” section explaining the factors.
+4. Community Safety Reports
+Create a working report form with:
+Location
+Report category:
+Poor lighting
+Harassment
+Suspicious activity
+Unsafe crossing
+Other
+Description
+Optional severity
+Submit Report button
+After submission:
+Validate the form.
+Save the report using the available backend/database.
+Show a success confirmation.
+Update the visible safety-report data/map markers.
+If no backend/API is configured, implement a functional local-storage fallback so the demo still works.
+5. Emergency / SOS
+Create a prominent SOS button.
+When clicked:
+Show an emergency confirmation screen/modal.
+Display emergency options such as:
+Call emergency services
+Call trusted contact
+Share current location
+Use proper tel/share links where supported by the browser/device.
+Do NOT automatically call anyone without user confirmation.
+Create a Trusted Contact section where the user can save a contact name and phone number.
+For the hackathon demo, clearly label any simulated emergency action as Demo Mode if the actual device capability is unavailable.
+6. Map
+Use a real map integration if API credentials are available.
+Prefer:
+Google Maps if a valid API key is configured
+Otherwise OpenStreetMap/Leaflet as a fallback
+Create clear map markers for:
+Community safety reports
+User/current location
+Destination
+Risk areas
+Do not expose API keys in frontend source code. Use environment variables.
+If live routing cannot be configured during development, create a realistic fallback route visualization so the complete user flow still works.
+7. Dashboard
+Create a clean dashboard containing:
+Current Trip
+Start
+Destination
+Recommended route
+Safety score
+ETA
+Distance
+Safety Insights
+Lighting
+Crowd/activity
+Reports nearby
+Risk explanation
+Recent Community Reports
+Show recent reports as cards with:
+Category
+Location
+Time
+Severity
+Trusted Contact
+Contact name
+Phone
+Edit/remove options
+8. UI/UX
+Design should look like a polished modern safety product, not a generic AI-generated template.
+Use:
+Clean responsive layout
+Mobile-first design
+Clear typography
+Accessible contrast
+Large touch-friendly buttons
+Safety-focused visual hierarchy
+Professional cards
+Smooth but minimal animations
+Use a consistent visual language:
+Safe = green
+Warning = amber
+Higher risk = red
+Do not overuse animations.
+9. Navigation
+Create:
+Home
+Find Route
+Safety Reports
+Trusted Contacts
+About Safety Score
+The user should be able to navigate easily between all sections.
+10. Data Model
+Create appropriate models for:
+User:
+id
+name
+trusted contacts
+SafetyReport:
+id
+latitude
+longitude
+category
+description
+severity
+createdAt
+Route:
+start
+destination
+distance
+duration
+safetyScore
+lightingScore
+crowdScore
+incidentScore
+11. Error Handling
+Handle:
+Empty location fields
+Invalid locations
+Map/API failure
+Network failure
+Failed report submission
+Missing location permission
+Always show a useful error message instead of silently failing.
+12. Demo Mode
+Because this is a hackathon project, add a clearly visible Demo Mode.
+Demo Mode should provide sample safety reports around a sample location so the judges can immediately see:
+Safety markers
+Safety score
+Route comparison
+Report submission
+Dashboard
+Clearly label demo data as demo/community sample data.
+13. Landing Page Copy
+Headline: “Choose a safer way home.”
+Subheadline: “SafeRoute helps you make more informed route decisions using community safety reports, lighting and activity indicators.”
+Primary CTA: Find a Safer Route
+Secondary CTA: Report an Unsafe Spot
+14. Technical Requirements
+Use:
+React
+TypeScript
+Tailwind CSS
+Modern component architecture
+Proper state management
+Reusable components
+Environment variables for API keys
+Clean folder structure
+Make the application easy to deploy.
+15. Hackathon Quality Requirements
+Before finishing:
+Test every button.
+Test the complete route-search flow.
+Test report submission.
+Test trusted-contact creation.
+Test SOS flow.
+Test mobile responsiveness.
+Remove broken links.
+Remove placeholder buttons.
+Make sure there are no console errors.
+Add a professional README explaining:
+Problem
+Solution
+Features
+Tech stack
+Safety-score methodology
+Demo mode
+Setup instructions
+Deployment instructions
+Limitations
+16. Important
+Do not build unnecessary features.
+Prioritize a small number of genuinely working features over a large number of fake features.
+The final result should feel like a real safety product that could be demonstrated to judges in 2 minutes.
+After implementing the application, provide:
+A working local preview
+Exact commands to run it
+Required environment variables
+Deployment instructions
+A short list of implemented features
